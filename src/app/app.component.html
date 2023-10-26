@@ -1,0 +1,24 @@
+<div class="content" role="main">
+  <!-- Nav bar -->
+  <nav class="nav">
+    <p class="nav__link">Singapore weather information</p>
+    <a href="#temp-chart" class="nav__link" data-link>Min and Max Temperature</a>
+    <a href="#humidity-chart" class="nav__link" data-link>Relative Humidity</a>
+    <a href="#radiation-chart" class="nav__link" data-link>Direct Radiation</a>
+  </nav>
+
+  <!-- Charts -->
+  <figure class="highcharts-figure">
+    <div id="temp-chart"></div>
+  </figure>
+
+  <figure class="highcharts-figure">
+    <div id="humidity-chart"></div>
+  </figure>
+
+  <figure class="highcharts-figure">
+    <div id="radiation-chart"></div>
+  </figure>
+</div>
+
+<router-outlet></router-outlet>
