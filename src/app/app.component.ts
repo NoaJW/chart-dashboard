@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
 
       // prepare values for charts
       // humidity values
-      let averageDailyHumidity = [];        
+      let averageDailyHumidity = [];
       for (let i = 0; i < this.humidity.length; i += 24) {
         const hourlyValues = this.humidity.slice(i, i + 24);
         const sum = hourlyValues.reduce((acc, val) => acc + val, 0);
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
         averageDailyHumidity.push(averageHourlyValues);
       }
 
-      const humiditySeriesData = this.days.map((day, idx) => [day, averageDailyHumidity[idx]]);   
+      const humiditySeriesData = this.days.map((day, idx) => [day, averageDailyHumidity[idx]]);
 
       const dailyHours = this.days_hours.slice(0, 24).map(dateTime => {    // fixed
         return dateTime.split('T')[1];
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit {
     // @ts-ignore
     const chart = Highcharts.chart("temp-chart", {
       chart: {
-        type: 'line'
+        type: 'line',
       },
       title: {
         text: 'Daily Min and Max Temperature'
@@ -111,9 +111,6 @@ export class AppComponent implements OnInit {
   private createHumidityChart(humiditySeriesData, drilldownSeriesData) {
     // @ts-ignore
     const chart = Highcharts.chart('humidity-chart', {
-      time: {
-        timezoneOffset: new Date().getTimezoneOffset()
-      },
       chart: {
         type: 'column',
       },
@@ -139,16 +136,16 @@ export class AppComponent implements OnInit {
           borderWidth: 0,
           dataLabels: {
             enabled: true,
-            format: '{point.y}'    
+            format: '{point.y}'
           }
         }
       },
-      tooltip: {   
+      tooltip: {
         pointFormat: 'Relative humidity: {point.y}'
       },
       series: [
         {
-          name: 'Day',   
+          name: 'Day',
           colorByPoint: true,
           data: humiditySeriesData.map((data, index) => ({
             name: data[0],
@@ -169,36 +166,6 @@ export class AppComponent implements OnInit {
           data: data[1]
         }))
       },
-      responsive: {
-        rules: [{
-          condition: {
-            maxWidth: 500
-          },
-          chartOptions: {
-            legend: {
-              align: 'center',
-              verticalAlign: 'bottom',
-              layout: 'horizontal'
-            },
-            yAxis: {
-              labels: {
-                align: 'left',
-                x: 0,
-                y: -5
-              },
-              title: {
-                text: null
-              }
-            },
-            subtitle: {
-              text: null
-            },
-            credits: {
-              enabled: false
-            }
-          }
-        }]
-      }
     });
   }
 
@@ -206,7 +173,7 @@ export class AppComponent implements OnInit {
     // @ts-ignore
     Highcharts.chart('radiation-chart', {
       chart: {
-        type: 'area'
+        type: 'area',
       },
       title: {
         text: 'Hourly Direct Radiation'
