@@ -1,4 +1,4 @@
-# ChartDashboard
+# Chart Dashboard
 
 Simple charting dashboard built with Angular and Highcharts library.
 
